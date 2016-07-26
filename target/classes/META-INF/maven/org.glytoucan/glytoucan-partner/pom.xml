@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.glytoucan</groupId>
+	<artifactId>glytoucan-partner</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>glytoucan partner logic</name>
+	<description>The partner logic that is  the registration and the display</description>
+
+	<dependencies>
+	  <dependency>
+	          <groupId>org.glycoinfo</groupId>
+	          <artifactId>batch</artifactId>
+	          <version>0.3.4-SNAPSHOT</version>
+	  </dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone/</url>
+		</repository>
+		<repository>
+			<id>glycoinfo</id>
+			<url>http://nexus.glycoinfo.org/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>glycoinfo</id>
+			<name>Internal Releases</name>
+			<url>http://nexus.glycoinfo.org/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>glycoinfo</id>
+			<name>Internal Release Snapshots</name>
+			<url>http://nexus.glycoinfo.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
