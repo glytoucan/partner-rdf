@@ -3,7 +3,7 @@ package org.glycoinfo.rdf.partner;
 import org.glycoinfo.rdf.SparqlException;
 import org.glycoinfo.rdf.dao.SparqlDAO;
 import org.glycoinfo.rdf.dao.SparqlEntity;
-import org.glycoinfo.rdf.dao.VirtSesameDAOTestConfig;
+import org.glycoinfo.rdf.dao.virt.VirtSesameTransactionConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,9 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @author shinmachi
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {PartnerMetaInsertSparqlTest.class, VirtSesameDAOTestConfig.class })
+@SpringApplicationConfiguration(classes = { VirtSesameTransactionConfig.class })
 @Configuration
-@EnableAutoConfiguration
+@EnableAutoConfiguration 
 public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
 
 	public static Logger logger = (Logger) LoggerFactory
@@ -46,11 +46,11 @@ public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
 		ins.setGraph("http://rdf.glytoucan.org/partner");
 		return ins;
 	}
+	
 	@Test
 	public void testInsertSparql() throws SparqlException {
 		logger.debug(getPartnerMetaInsertSparql().getSparql());
 	}
-	
 
 	// Select sparql
 	@Bean
@@ -58,6 +58,7 @@ public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
 		PartnerMetaSelectSparql pss = new PartnerMetaSelectSparql();
 		return pss ;
 	}
+	
 	@Test
 	public void testSelectSparql() throws SparqlException {
 		logger.debug(getPartnerMetaSelectSparql().getSparql());
