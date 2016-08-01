@@ -48,7 +48,7 @@ public class PartnerMetaInsertSparqlTest  {
 		ins.setGraph("http://rdf.glytoucan.org/partner");
 		return ins;
 	}
-	
+/*	
 	@Test
 	public void testInsertSparql() throws SparqlException {
 	  String test = getPartnerMetaInsertSparql().getSparql();
@@ -56,6 +56,7 @@ public class PartnerMetaInsertSparqlTest  {
 		logger.debug(getPartnerMetaInsertSparql().getSparql());
 		
 	}
+*/
 
 	// Select sparql
 	@Bean
@@ -78,7 +79,7 @@ public class PartnerMetaInsertSparqlTest  {
 	public void insertSparql() throws SparqlException {
 		sparqlDAO.query(getPartnerMetaSelectSparql());
 		sparqlDAO.insert(getPartnerMetaInsertSparql());
-		sparqlDAO.query(getPartnerMetaSelectSparql());
+//		sparqlDAO.query(getPartnerMetaSelectSparql());
 	}
 
 }

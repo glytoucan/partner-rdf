@@ -23,6 +23,7 @@ public class StanzaURLSelectSparql extends SelectSparqlBean implements StanzaURL
 			+ "PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>"
 			+ "\n" ;
 
+//		this.select = "DISTINCT ?stanza_url \n";
 		this.select = "DISTINCT ?stanza_url \n";
 
 //		this.from = "FROM <http://test>"
@@ -31,7 +32,9 @@ public class StanzaURLSelectSparql extends SelectSparqlBean implements StanzaURL
 	
 	@Override
 	public String getWhere() throws SparqlException {
-		String where = "?stanza_url a glytoucan:Stanza_url ."
+		String where = "\n" 
+				+ "?stanza_url a glytoucan:Stanza_url ."
+//				+ "?stanza_url a glytoucan:Stanza_url ."
 				+ "\n";
 		return where;
 	}
