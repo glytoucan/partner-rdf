@@ -1,13 +1,16 @@
 package org.glycoinfo.rdf.partner;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.glycoinfo.convert.GlyConvertConfig;
 import org.glycoinfo.rdf.SparqlException;
 import org.glycoinfo.rdf.dao.SparqlDAO;
 import org.glycoinfo.rdf.dao.SparqlEntity;
 import org.glycoinfo.rdf.dao.virt.VirtSesameTransactionConfig;
+import org.glycoinfo.rdf.service.impl.GlycanProcedureConfig;
+import org.glycoinfo.rdf.utils.TripleStoreProperties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -21,14 +24,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @author shinmachi
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { VirtSesameTransactionConfig.class })
+@SpringApplicationConfiguration(classes = { VirtSesameTransactionConfig.class, PartnerMetaInsertSparqlTest.class })
 @Configuration
 @EnableAutoConfiguration 
-public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
+public class PartnerMetaInsertSparqlTest  {
 
-	public static Logger logger = (Logger) LoggerFactory
-			.getLogger(PartnerMetaInsertSparqlTest.class);
-	
+  private static final Log logger = LogFactory.getLog(PartnerMetaInsertSparqlTest.class);
+  
 	@Autowired
 	SparqlDAO sparqlDAO;
 
@@ -49,7 +51,10 @@ public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
 	
 	@Test
 	public void testInsertSparql() throws SparqlException {
+	  String test = getPartnerMetaInsertSparql().getSparql();
+	  System.out.println(test);
 		logger.debug(getPartnerMetaInsertSparql().getSparql());
+		
 	}
 
 	// Select sparql
@@ -61,6 +66,8 @@ public class PartnerMetaInsertSparqlTest extends PartnerMetaInsertSparql {
 	
 	@Test
 	public void testSelectSparql() throws SparqlException {
+    String test = getPartnerMetaSelectSparql().getSparql();
+    System.out.println(test);
 		logger.debug(getPartnerMetaSelectSparql().getSparql());
 	}
 
